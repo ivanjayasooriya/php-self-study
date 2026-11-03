@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'crud_app';
 $user = 'root';
-$pass = ''; // Default password for XAMPP/WAMP is usually empty
+$pass = 'mysql'; // Default password for XAMPP/WAMP is usually empty
 
 try {
     // Create a PDO connection
