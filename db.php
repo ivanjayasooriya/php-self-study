@@ -1,12 +1,17 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "mysql";
-$database = "crud_app";
+$host = 'localhost';
+$db   = 'crud_app';
+$user = 'root';
+$pass = ''; // Default password for XAMPP/WAMP is usually empty
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $user, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Create a PDO connection
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    
+    // Set error mode to exception so we can catch bugs easily
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    // If connection fails, stop and show error
+    die("Database connection failed: " . $e.getMessage());
 }
+?>
